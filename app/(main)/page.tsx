@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 export default function Home() {
   if (true) {
-    redirect("/collections/outerwear");
+    redirect(`/collections/${"outerwear"}`);
   }
   return <h1>home</h1>;
 }

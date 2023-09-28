@@ -1,0 +1,92 @@
+{
+  "productData": [
+    {
+      "id": "ea449811-35fb-45fb-98bd-1646cb99f45b",
+      "name": "Product 1",
+      "price": 100,
+      "collection": "outerwear",
+      "previewImgUrls": [
+        "https://i.ibb.co/XbJMtkm/KHM010459-412-FRONT-900x.webp",
+        "https://i.ibb.co/35KmJfJ/KHM010459-412-BACK-900x.webp"
+      ],
+      "availableSizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": "ea449811-35fb-45fb-98bd-1646cb99f453",
+      "name": "Product 1",
+      "price": 100,
+      "collection": "outerwear",
+      "previewImgUrls": [
+        "https://i.ibb.co/XbJMtkm/KHM010459-412-FRONT-900x.webp",
+        "https://i.ibb.co/35KmJfJ/KHM010459-412-BACK-900x.webp"
+      ],
+      "availableSizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": "ea449811-35fb-45fb-98bd-1646cb99f454",
+      "name": "Product 1",
+      "price": 100,
+      "collection": "outerwear",
+      "previewImgUrls": [
+        "https://i.ibb.co/XbJMtkm/KHM010459-412-FRONT-900x.webp",
+        "https://i.ibb.co/35KmJfJ/KHM010459-412-BACK-900x.webp"
+      ],
+      "availableSizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": "ea449811-35fb-45fb-98bd-1646cb99f45z",
+      "name": "Product 1",
+      "price": 100,
+      "collection": "outerwear",
+      "previewImgUrls": [
+        "https://i.ibb.co/XbJMtkm/KHM010459-412-FRONT-900x.webp",
+        "https://i.ibb.co/35KmJfJ/KHM010459-412-BACK-900x.webp"
+      ],
+      "availableSizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": "ea449811-35fb-45fb-98bd-1646cb99f457",
+      "name": "Product 1",
+      "price": 100,
+      "collection": "outerwear",
+      "previewImgUrls": [
+        "https://i.ibb.co/XbJMtkm/KHM010459-412-FRONT-900x.webp",
+        "https://i.ibb.co/35KmJfJ/KHM010459-412-BACK-900x.webp"
+      ],
+      "availableSizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": "ea449811-35fb-45fb-98bd-1646cb99f45d",
+      "name": "Product 1",
+      "price": 100,
+      "collection": "outerwear",
+      "previewImgUrls": [
+        "https://i.ibb.co/XbJMtkm/KHM010459-412-FRONT-900x.webp",
+        "https://i.ibb.co/35KmJfJ/KHM010459-412-BACK-900x.webp"
+      ],
+      "availableSizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": "ea449811-35fb-45fb-98bd-1646cb99f45s",
+      "name": "Product 1",
+      "price": 100,
+      "collection": "outerwear",
+      "previewImgUrls": [
+        "https://i.ibb.co/XbJMtkm/KHM010459-412-FRONT-900x.webp",
+        "https://i.ibb.co/35KmJfJ/KHM010459-412-BACK-900x.webp"
+      ],
+      "availableSizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": "ea449811-35fb-45fb-98bd-1646cb99f45j",
+      "name": "Product 1",
+      "price": 100,
+      "collection": "outerwear",
+      "previewImgUrls": [
+        "https://i.ibb.co/XbJMtkm/KHM010459-412-FRONT-900x.webp",
+        "https://i.ibb.co/35KmJfJ/KHM010459-412-BACK-900x.webp"
+      ],
+      "availableSizes": ["S", "M", "L", "XL"]
+    }
+  ]
+}
