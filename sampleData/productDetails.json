@@ -1,0 +1,32 @@
+{
+  "data": {
+    "id": "ea449811-35fb-45fb-98bd-1646cb99f45b",
+    "name": "Product 1",
+    "price": 1499.0,
+    "collection": "outerwear",
+    "images": [
+      "https://i.ibb.co/XbJMtkm/KHM010459-412-FRONT-900x.webp",
+      "https://i.ibb.co/35KmJfJ/KHM010459-412-BACK-900x.webp"
+    ],
+    "availableSizes": ["S", "M", "L", "XL"],
+    "colors": ["blue", "black", "red"],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eu ultricies ultricies, nunc nisl aliquam nunc, quis",
+    "final": true,
+    "note": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eu ultricies ultricies, nunc nisl aliquam nunc, quis",
+    "details": [
+      "Vegetal Nappa leather fabric",
+      "Kith branded excella zipper at front",
+      "Rib at collar, cuffs, and hem",
+      "Welt pockets",
+      "Color-blocked composition",
+      "Leather applique artwork at front",
+      "Mixed leather applique and direct embroidered artwork at back",
+      "Lightly filled",
+      "Satin lined",
+      "Oversized fit",
+      "Made in Italy",
+      "Follow garment tag instructions"
+    ],
+    "productInfo": []
+  }
+}

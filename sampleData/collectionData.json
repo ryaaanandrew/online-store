@@ -1,9 +1,9 @@
 {
-  "productData": [
+  "data": [
     {
       "id": "ea449811-35fb-45fb-98bd-1646cb99f45b",
       "name": "Product 1",
-      "price": 100,
+      "price": 1499.0,
       "collection": "outerwear",
       "previewImgUrls": [
         "https://i.ibb.co/XbJMtkm/KHM010459-412-FRONT-900x.webp",
@@ -14,7 +14,7 @@
     {
       "id": "ea449811-35fb-45fb-98bd-1646cb99f453",
       "name": "Product 1",
-      "price": 100,
+      "price": 1499.0,
       "collection": "outerwear",
       "previewImgUrls": [
         "https://i.ibb.co/XbJMtkm/KHM010459-412-FRONT-900x.webp",

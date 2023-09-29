@@ -1,6 +1,6 @@
 import ProductCard from "@/components/custom/productCard";
 import React from "react";
-import sampleData from "@/sampleData.json";
+import sampleData from "@/sampleData/collectionData.json";
 
 type CollectionsPageProps = {
   params: {
@@ -24,7 +24,7 @@ const CollectionsPage = ({ params }: CollectionsPageProps) => {
         <li>kith pants</li>
       </ul>
       <div className="grid grid-cols-3 gap-4">
-        {sampleData?.productData?.map((product, i) => (
+        {sampleData?.data?.map((product, i) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
