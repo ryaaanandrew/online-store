@@ -8,7 +8,6 @@ const ShopMore = ({ collection }: { collection: any }) => {
       </div>
       <div className="grid grid-cols-4 gap-4 h-50">
         {collection?.data?.slice(0, 4).map((product: any, i: number) => {
-          console.log("PRODUCT: ", product);
           return <ProductCard product={product} key={product.id} />;
         })}
       </div>

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { data as productData } from "@/sampleData/productDetails.json";
 import data from "@/sampleData/collectionData.json";
 import { formatCurrency } from "@/lib/formatCurrency";
@@ -12,49 +13,55 @@ import {
 import { Button } from "@/components/ui/button";
 import ProductCard from "@/components/custom/productCard";
 import ShopMore from "@/components/custom/shopMore";
+import ProductImageCarosel from "@/components/custom/productImageCarosel";
 
 const CollectionProductPage = () => {
+  const [selectedSize, setSelectedSize] = useState("");
   const productDetails = productData;
-  const {
-    name,
-    price,
-    images,
-    colors,
-    description,
-    final,
-    note,
-    details,
-    productInfo,
-    availableSizes,
-  } = productDetails;
+  const { name, price, images, colors, final, note, details, availableSizes } =
+    productDetails;
   const collectionData = data;
 
   return (
     <div className="h-full flex flex-col">
       <div className="flex h-full">
         <div className="w-full">
-          <h1>left</h1>
+          <ProductImageCarosel productImages={images} />
         </div>
-        <div className="w-full p-2">
-          <h1>{name}</h1>
-          <h2>{formatCurrency(price)}</h2>
+        <div className="w-full p-2 [&>*]:mb-2">
+          <div className="">
+            <h1 className=" text-xl font-semibold">{name}</h1>
+            <h2>{formatCurrency(price)}</h2>
+          </div>
 
           <Separator className=" bg-black" />
-          {colors?.map((color, i) => (
-            <h2 key={`${color}-${i}`}>{color}</h2>
-          ))}
+          <div className="flex">{colors?.join("/")}</div>
 
           <Separator className=" bg-black" />
-          {availableSizes?.map((color, i) => (
-            <h2 key={`${color}-${i}`}>{color}</h2>
-          ))}
+          <div className="flex items-center justify-between">
+            <p>Size</p>
+            <div>
+              {availableSizes?.map((size, i) => (
+                <Button
+                  onClick={() => {
+                    console.log("hello");
+                    setSelectedSize(size);
+                  }}
+                  key={`${size}-${i}`}
+                  className={`py-0 px-2 bg-transparant text-black hover:bg-transparent ${
+                    selectedSize === size ? "font-bold" : ""
+                  }`}
+                >
+                  {size}
+                </Button>
+              ))}
+            </div>
+          </div>
 
           <Separator className=" bg-black" />
           <Button className="w-full my-4 rounded-none">ADD TO CART</Button>
 
           {final && <h2>FINAL SALE. NO RETURNS OR EXCHANGES</h2>}
-
-          {/* TODO - COMPLETE THIS LOOK SECTION */}
 
           <div>
             <h2>EDITOR&apos;S NOTE</h2>
