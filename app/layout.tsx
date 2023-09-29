@@ -21,6 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavigationBar />
         {children}
+        <div className="h-40 flex justify-center items-center">FOOTER</div>
       </body>
     </html>
   );

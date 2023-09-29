@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import ProductCard from "@/components/custom/productCard";
+import ShopMore from "@/components/custom/shopMore";
 
 const CollectionProductPage = () => {
   const productDetails = productData;
@@ -30,11 +31,11 @@ const CollectionProductPage = () => {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="flex border-2 border-red-400 h-full">
-        <div className="border-2 w-full">
+      <div className="flex h-full">
+        <div className="w-full">
           <h1>left</h1>
         </div>
-        <div className="border-2 border-blue-500 w-full p-2">
+        <div className="w-full p-2">
           <h1>{name}</h1>
           <h2>{formatCurrency(price)}</h2>
 
@@ -92,22 +93,6 @@ const CollectionProductPage = () => {
         </div>
       </div>
       <ShopMore collection={collectionData} />
-    </div>
-  );
-};
-
-const ShopMore = ({ collection }: { collection: any }) => {
-  // console.log(collection);
-
-  return (
-    <div className=" border-2 border-red-200 justify-self-stretch self-stretch">
-      <h1>Shop More</h1>
-      <div className="grid grid-cols-4 gap-4 h-50">
-        {collection?.data?.slice(0, 4).map((product: any, i: number) => {
-          console.log("PRODUCT: ", product);
-          return <ProductCard product={product} key={product.id} />;
-        })}
-      </div>
     </div>
   );
 };
