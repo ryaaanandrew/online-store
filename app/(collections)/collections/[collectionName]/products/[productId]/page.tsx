@@ -11,7 +11,6 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import ProductCard from "@/components/custom/productCard";
 import ShopMore from "@/components/custom/shopMore";
 import ProductImageCarosel from "@/components/custom/productImageCarosel";
 
@@ -23,13 +22,11 @@ const CollectionProductPage = () => {
   const collectionData = data;
 
   return (
-    <div className="h-full flex flex-col">
-      <div className="flex h-full">
-        <div className="w-full">
-          <ProductImageCarosel productImages={images} />
-        </div>
-        <div className="w-full p-2 [&>*]:mb-2">
-          <div className="">
+    <div className="flex flex-col md:h-full">
+      <div className="flex flex-col md:flex-row">
+        <ProductImageCarosel productImages={images} />
+        <div className="p-2 [&>*]:mb-2 mt-4 md:mt-0">
+          <div>
             <h1 className=" text-xl font-semibold">{name}</h1>
             <h2>{formatCurrency(price)}</h2>
           </div>

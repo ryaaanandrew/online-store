@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Slider from "react-slick";
 import React from "react";
 
 const ProductImageCarosel = ({
@@ -6,15 +7,27 @@ const ProductImageCarosel = ({
 }: {
   productImages: string[];
 }) => {
-  console.log("productImages", productImages);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
-    // TODO implement swiper
-    <div className="border-2 border-pink-400 h-full">
-      <div className="carousel h-full">
-        <div className="carousel-cell bg-red-400 w-full h-full">asd</div>
-        <div className="carousel-cell bg-red-400 w-full h-full">asd</div>
-      </div>
-    </div>
+    <Slider {...settings} className="md:w-[50vw]">
+      {productImages.map((image, i) => (
+        <Image
+          className="max-h-[700px] max-w-[700px]"
+          key={`${image}-${i}`}
+          src={image}
+          alt="Picture of the author"
+          width={500}
+          height={500}
+          // placeholder="blur"
+        />
+      ))}
+    </Slider>
   );
 };
 
