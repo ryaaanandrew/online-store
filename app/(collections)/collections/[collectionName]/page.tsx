@@ -1,6 +1,9 @@
+"use client";
+
 import ProductCard from "@/components/custom/productCard";
-import React from "react";
+import React, { useEffect } from "react";
 import sampleData from "@/sampleData/collectionData.json";
+import { useCart } from "@/hooks/use-cart";
 
 type CollectionsPageProps = {
   params: {
@@ -10,8 +13,13 @@ type CollectionsPageProps = {
 
 const CollectionsPage = ({ params }: CollectionsPageProps) => {
   const { collectionName } = params;
+  const { cart } = useCart();
 
   // TODO: fetch api call to get products by collection name
+
+  useEffect(() => {
+    console.log("cart: ", cart);
+  }, []);
 
   return (
     <div className="p-4">
