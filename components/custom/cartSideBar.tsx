@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import {
   Sheet,
   SheetContent,
@@ -7,10 +8,13 @@ import {
   SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useSidebar } from "@/hooks/use-sidebar";
 
 const CartSidebar = () => {
+  const { isSidebarOpen, toggleSidebar } = useSidebar();
+
   return (
-    <Sheet>
+    <Sheet open={isSidebarOpen} onOpenChange={() => toggleSidebar(false)}>
       <SheetTrigger>Open</SheetTrigger>
       <SheetContent>
         <SheetHeader>

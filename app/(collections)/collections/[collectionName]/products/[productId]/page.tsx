@@ -41,7 +41,6 @@ const CollectionProductPage = () => {
               {availableSizes?.map((size, i) => (
                 <Button
                   onClick={() => {
-                    console.log("hello");
                     setSelectedSize(size);
                   }}
                   key={`${size}-${i}`}

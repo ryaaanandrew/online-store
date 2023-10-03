@@ -1,29 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Tooltip, TooltipContent, TooltipProvider } from "../ui/tooltip";
 import { TooltipTrigger } from "@radix-ui/react-tooltip";
 import { formatCurrency } from "@/lib/formatCurrency";
+import { ProductType, useCart } from "@/hooks/use-cart";
+import { useSidebar } from "@/hooks/use-sidebar";
 
-type ProductCardType = {
-  id: string;
-  name: string;
-  price: number;
-  previewImgUrls: string[];
-  availableSizes: string[];
-  collection: string;
-};
-
-const ProductCard = ({ product }: { product: ProductCardType }) => {
+const ProductCard = ({ product }: { product: ProductType }) => {
   const [previewAlt, setPreviewAlt] = useState<boolean>(false);
-  const { name, price, previewImgUrls, availableSizes, id, collection } =
-    product;
-
-  const handleAddToCard = () => {
-    console.log("add to cart");
-  };
+  const { name, price, previewImgUrls, id, collection } = product;
 
   return (
     <div
@@ -42,10 +30,7 @@ const ProductCard = ({ product }: { product: ProductCardType }) => {
       </Link>
       <div>
         {previewAlt ? (
-          <ProductSizes
-            sizes={availableSizes}
-            handleAddToCard={handleAddToCard}
-          />
+          <ProductSizes product={product} />
         ) : (
           <div className="pt-2 text-xs">
             <div className="mb-2">{name}</div>
@@ -57,27 +42,34 @@ const ProductCard = ({ product }: { product: ProductCardType }) => {
   );
 };
 
-const ProductSizes = ({
-  sizes,
-  handleAddToCard,
-}: {
-  sizes: string[];
-  handleAddToCard: () => void;
-}) => (
-  <TooltipProvider>
-    {sizes?.map((item, index) => (
-      <Tooltip delayDuration={100} key={`${item}-${index}`}>
-        <TooltipTrigger>
-          <p onClick={handleAddToCard} className={"px-2 text-xs capitalize"}>
-            {item}
-          </p>
-        </TooltipTrigger>
-        <TooltipContent className="bg-black text-white text-xs border-0 cursor-pointer">
-          Quick Add
-        </TooltipContent>
-      </Tooltip>
-    ))}
-  </TooltipProvider>
-);
+const ProductSizes = ({ product }: { product: ProductType }) => {
+  const { addToCart } = useCart();
+  const { toggleSidebar } = useSidebar();
+
+  const handleAddToCart = (product: ProductType) => {
+    addToCart(product);
+    toggleSidebar(true);
+  };
+
+  return (
+    <TooltipProvider>
+      {product?.availableSizes?.map((item, index) => (
+        <Tooltip delayDuration={100} key={`${item}-${index}`}>
+          <TooltipTrigger>
+            <p
+              onClick={() => handleAddToCart(product)}
+              className={"px-2 text-xs capitalize"}
+            >
+              {item}
+            </p>
+          </TooltipTrigger>
+          <TooltipContent className="bg-black text-white text-xs border-0 cursor-pointer">
+            Quick Add
+          </TooltipContent>
+        </Tooltip>
+      ))}
+    </TooltipProvider>
+  );
+};
 
 export default ProductCard;
