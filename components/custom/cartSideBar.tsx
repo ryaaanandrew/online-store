@@ -13,10 +13,11 @@ import { ProductTypeInCart, useCart } from "@/hooks/use-cart";
 import { formatCurrency } from "@/lib/formatCurrency";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { ScrollArea } from "../ui/scroll-area";
 
 const CartSidebar = () => {
   const { isSidebarOpen, toggleSidebar } = useSidebar();
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart, cartTotal } = useCart();
 
   useEffect(() => {
     console.log("cart: ", cart);
@@ -24,10 +25,12 @@ const CartSidebar = () => {
 
   return (
     <Sheet open={isSidebarOpen} onOpenChange={() => toggleSidebar(false)}>
-      <SheetContent>
+      <SheetContent className="flex flex-col justify-between">
         <SheetHeader>
           <SheetTitle>Shopping Cart</SheetTitle>
-          <Separator />
+        </SheetHeader>
+        <Separator />
+        <ScrollArea>
           {cart?.map((product: ProductTypeInCart, i: number) => (
             <CartItem
               product={product}
@@ -35,7 +38,14 @@ const CartSidebar = () => {
               key={`${product.id}-${i}`}
             />
           ))}
-        </SheetHeader>
+        </ScrollArea>
+        <Separator />
+        <div className="border-2 sticky bottom-0">
+          <h1>Total: {formatCurrency(cartTotal())}</h1>
+          <h1>Total: {formatCurrency(cartTotal())}</h1>
+          <h1>Total: {formatCurrency(cartTotal())}</h1>
+          <h1>Total: {formatCurrency(cartTotal())}</h1>
+        </div>
       </SheetContent>
     </Sheet>
   );
@@ -48,7 +58,7 @@ const CartItem = ({
   product: ProductTypeInCart;
   removeFromCart: (product: ProductTypeInCart) => void;
 }) => (
-  <div className="flex justify-start items-center rounded-sm bg-slate-100 p-2">
+  <div className="flex justify-start items-center rounded-sm bg-slate-100 p-2 mb-2">
     <Image
       height={70}
       width={70}
