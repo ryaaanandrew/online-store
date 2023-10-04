@@ -24,7 +24,8 @@
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
-    "zustand": "^4.4.2"
+    "zustand": "^4.4.2",
+    "zustand-persist": "^0.4.0"
   },
   "devDependencies": {
     "@types/node": "latest",
