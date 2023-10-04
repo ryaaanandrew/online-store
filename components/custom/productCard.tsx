@@ -46,21 +46,26 @@ const ProductSizes = ({ product }: { product: ProductType }) => {
   const { addToCart } = useCart();
   const { toggleSidebar } = useSidebar();
 
-  const handleAddToCart = (product: ProductType) => {
-    addToCart(product);
+  const handleAddToCart = (
+    product: ProductType,
+    size: string,
+    quantity: number
+  ) => {
+    const cartProduct = { ...product, size, quantity };
+    addToCart(cartProduct);
     toggleSidebar(true);
   };
 
   return (
     <TooltipProvider>
-      {product?.availableSizes?.map((item, index) => (
-        <Tooltip delayDuration={100} key={`${item}-${index}`}>
+      {product?.availableSizes?.map((size, index) => (
+        <Tooltip delayDuration={100} key={`${size}-${index}`}>
           <TooltipTrigger>
             <p
-              onClick={() => handleAddToCart(product)}
+              onClick={() => handleAddToCart(product, size, 1)}
               className={"px-2 text-xs capitalize"}
             >
-              {item}
+              {size}
             </p>
           </TooltipTrigger>
           <TooltipContent className="bg-black text-white text-xs border-0 cursor-pointer">

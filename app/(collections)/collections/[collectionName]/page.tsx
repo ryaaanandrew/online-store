@@ -11,15 +11,11 @@ type CollectionsPageProps = {
 };
 
 const CollectionsPage = ({ params }: CollectionsPageProps) => {
-  // const { collectionName } = params;
-
-  useEffect(() => {
-    console.log("hello");
-  }, []);
+  const { collectionName } = params;
 
   return (
     <div className="p-4">
-      <h1 className=" tracking-tight capitalize">{"collectionName"}</h1>
+      <h1 className=" tracking-tight capitalize">{collectionName}</h1>
       <ul className="flex py-4 [&>li]:pr-2 text-xs">
         <li>All Kith</li>
         <li>Monday program</li>
