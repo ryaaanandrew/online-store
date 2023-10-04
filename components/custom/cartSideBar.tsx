@@ -12,13 +12,14 @@ import { useEffect } from "react";
 import { ProductTypeInCart, useCart } from "@/hooks/use-cart";
 import { formatCurrency } from "@/lib/formatCurrency";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 const CartSidebar = () => {
   const { isSidebarOpen, toggleSidebar } = useSidebar();
-  const { cart } = useCart();
+  const { cart, removeFromCart } = useCart();
 
   useEffect(() => {
-    console.log(cart);
+    console.log("cart: ", cart);
   }, [cart]);
 
   return (
@@ -28,7 +29,11 @@ const CartSidebar = () => {
           <SheetTitle>Shopping Cart</SheetTitle>
           <Separator />
           {cart?.map((product: ProductTypeInCart, i: number) => (
-            <CartItem product={product} key={`${product.id}-${i}`} />
+            <CartItem
+              product={product}
+              removeFromCart={removeFromCart}
+              key={`${product.id}-${i}`}
+            />
           ))}
         </SheetHeader>
       </SheetContent>
@@ -36,7 +41,13 @@ const CartSidebar = () => {
   );
 };
 
-const CartItem = ({ product }: { product: ProductTypeInCart }) => (
+const CartItem = ({
+  product,
+  removeFromCart,
+}: {
+  product: ProductTypeInCart;
+  removeFromCart: (product: ProductTypeInCart) => void;
+}) => (
   <div className="flex justify-start items-center rounded-sm bg-slate-100 p-2">
     <Image
       height={70}
@@ -50,6 +61,12 @@ const CartItem = ({ product }: { product: ProductTypeInCart }) => (
       <h2>Price: {formatCurrency(product.price)}</h2>
       <h2>size: {product.size}</h2>
       <h2>quantity: {product.quantity}</h2>
+      <Button
+        className="bg-transparent text-black p-0 underline"
+        onClick={() => removeFromCart(product)}
+      >
+        Remove
+      </Button>
     </div>
   </div>
 );

@@ -12,19 +12,23 @@ export type ProductType = {
 export interface ProductTypeInCart extends ProductType {
   size?: string;
   quantity: number;
+  productSizeId?: string;
 }
 
 interface CartStore {
   cart: ProductTypeInCart[];
   addToCart: (product: ProductTypeInCart) => void;
+  removeFromCart: (product: ProductTypeInCart) => void;
 }
 
 export const useCart = create<CartStore>((set, get) => ({
   cart: [],
   addToCart: (product: ProductTypeInCart) => {
     const currentCart = get().cart;
+    const productSizeId = `${product.id}-${product.size}`;
+    const updatedProduct = { ...product, productSizeId };
     const prodIdx = currentCart.findIndex(
-      (item) => item.id === product.id && item.size === product.size
+      (item) => item.productSizeId === productSizeId
     );
 
     if (prodIdx !== -1) {
@@ -33,7 +37,15 @@ export const useCart = create<CartStore>((set, get) => ({
 
       set(() => ({ cart: [...currentCart] }));
     } else {
-      set((state) => ({ cart: [...state.cart, product] }));
+      set((state) => ({ cart: [...state.cart, updatedProduct] }));
     }
+  },
+  removeFromCart: (product: ProductTypeInCart) => {
+    const currentCart = get().cart;
+    const fitleredCart = currentCart.filter((item) => {
+      return item.productSizeId !== product.productSizeId;
+    });
+
+    set(() => ({ cart: [...fitleredCart] }));
   },
 }));
