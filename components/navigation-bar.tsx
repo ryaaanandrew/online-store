@@ -1,6 +1,11 @@
+"use client";
+
 import React from "react";
+import { Button } from "./ui/button";
+import { useSidebar } from "@/hooks/use-sidebar";
 
 const NavigationBar = () => {
+  const { isSidebarOpen, toggleSidebar } = useSidebar();
   return (
     <nav
       className={
@@ -21,7 +26,9 @@ const NavigationBar = () => {
       <ul className="flex [&>li]:pl-2">
         <li>locations</li>
         <li>account</li>
-        <li>cart</li>
+        <li>
+          <Button onClick={() => toggleSidebar(!isSidebarOpen)}>Cart</Button>
+        </li>
       </ul>
     </nav>
   );
